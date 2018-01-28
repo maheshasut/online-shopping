@@ -19,32 +19,58 @@
     <meta name="author" content="">
 
     <title>Online Shopping - ${title}</title>
-
+	<script>
+		window.menu='${title}';
+	</script>
     <!-- Bootstrap core CSS -->
     <link href="${css}/bootstrap.min.css" rel="stylesheet">
 
+ <!-- Bootstrap Readable Theme CSS -->
+    <link href="${css}/bootstrap-readable-theme.css" rel="stylesheet">
+    
     <!-- Custom styles for this template -->
     <link href="${css}/myapp.css" rel="stylesheet">
 
   </head>
 
   <body>
+  <div class="wrapper">
 
     <!-- Navigation -->
     <%@include file="./shared/navbar.jsp" %>
     
 <!-- Page Contents Comes Here -->
+
+<div class="content">
 <c:if test="${userClickHome==true }">
 <%@include file="home.jsp" %>
 </c:if>
 
+<!-- Loading when user click on about -->
+<c:if test="${userClickAbout==true }">
+<%@include file="about.jsp" %>
+</c:if>
+
+<!-- Loading when user clicks on contact -->
+<c:if test="${userClickContact==true }">
+<%@include file="contact.jsp" %>
+</c:if>
+
+<!-- Loading when user clicks on contact -->
+<c:if test="${userClickAllProducts==true or userClickCategoryProducts==true}">
+<%@include file="listProducts.jsp" %>
+</c:if>
+</div>
     <!-- Footer Comes Here -->
     <%@include file="./shared/footer.jsp" %>
 
     <!-- Bootstrap core JavaScript -->
     <script src="${js}/jquery.js"></script>
     <script src="${js}/bootstrap.min.js"></script>
-
+    
+<!-- Self coded javascript file -->
+ <script src="${js}/myapp.js"></script>
+ </div>
   </body>
 
 </html>
